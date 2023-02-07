@@ -4,7 +4,7 @@
 class Model extends CI_Model 
 {
     public function utilisateur()
-    {   
+    {
         $sql = "select * from utilisateur";
         $query = $this->db->query($sql);
         $valiny = array();
@@ -47,6 +47,19 @@ class Model extends CI_Model
         $sql="insert into objet values(null,'".$nom."',".$sary.",'".$description."',".$prixEstimatif.")";
         $query= $this->db->query($sql);
         return $query->result_array;
+    }
+
+    public function allObj()
+    {
+        $sql = "select * from objet";
+        $query = $this->db->query($sql);
+        $valiny = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
+        }
+        return $valiny;
     }
 
 }

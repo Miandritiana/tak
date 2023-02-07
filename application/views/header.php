@@ -17,7 +17,6 @@
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/themify-icons.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css">
-	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/nice-select.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/nouislider.min.css">
 	<link rel="stylesheet" href="<?php echo base_url();?>assets/css/ion.rangeSlider.css" />
@@ -46,7 +45,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto" style="margin-right:80px;">
 							<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('takaloAdmin/home');?>">Home</a></li>
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								<a href="<?php echo base_url('takaloAdmin/allObj');?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Shop</a>
 							</li>
     					</ul>

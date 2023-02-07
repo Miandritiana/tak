@@ -15,7 +15,27 @@ class TakaloAdmin extends CI_Controller
 
 	public function home()
 	{		
-		$this->load->view('home2');
+		$this->load->view('header');
+		$this->load->view('home');
+		$this->load->view('footer');
+	}
+
+	public function homeAdmin()
+	{		
+		$this->load->view('header');
+		$this->load->view('homeAdmin');
+		$this->load->view('footer');
+	}
+
+	public function allObj()
+	{		
+		$this->load->view('header');
+
+		$this->load->model('Model');
+		$data['data'] = $this->Model->allObj();
+		$this->load->view('allObj', $data);
+
+		$this->load->view('footer');
 	}
 
 	//------------------trait login------------------------

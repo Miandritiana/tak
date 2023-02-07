@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/themify-icons.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/nice-select.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/nouislider.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/ion.rangeSlider.css" />
