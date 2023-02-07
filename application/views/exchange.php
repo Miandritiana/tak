@@ -34,7 +34,7 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
 						<div class="section-title">
-							<h1>Tous les objets</h1>
+							<h1>Mes objets</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore
 								magna aliqua.</p>
@@ -43,26 +43,30 @@
 				</div>
 				<div class="row">
 					<!-- single product -->
-                    <?php for ($i=0; $i < count($data); $i++) { ?>
-                        <div class="col-lg-3 col-md-6">
+					<?php for ($i=0; $i < count($data); $i++) { ?>
+						<div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
-                                <div class="product-details">
-                                    <h6><?php echo $data[$i]['nom']; ?></h6>
-                                    <div class="price">
+								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
+								<div class="product-details">
+									<h6><?php echo $data[$i]['nom']; ?></h6>
+									<div class="price">
                                         <h6><?php echo $data[$i]['description']; ?></h6>
                                         <h6><?php echo $data[$i]['prixEstimatif']; ?> $</h6>
-                                    </div>
-                                    <div class="prd-bottom">
-                                        <a href="<?php echo base_url('TakaloAdmin/change');?>?idObj=<?php echo $data[$i]['id'];?>" class="social-info">
-                                            <span class="ti-bag"></span>
-                                            <p class="hover-text">exchange</p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+									</div>
+								</div>
+							</div>
+							<div class="single-product">
+								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
+								<div class="product-details">
+									<h6><?php echo $data[$i]['nom']; ?></h6>
+									<div class="price">
+                                        <h6><?php echo $data[$i]['description']; ?></h6>
+                                        <h6><?php echo $data[$i]['prixEstimatif']; ?> $</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
 					<!-- single product -->
 				</div>
 			</div>

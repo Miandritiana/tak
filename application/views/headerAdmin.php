@@ -43,11 +43,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto" style="margin-right:80px;">
-							<li class="nav-item submenu dropdown"><a class="nav-link" href="<?php echo base_url('takaloAdmin/home');?>">Home</a></li>
-							<li class="nav-item submenu dropdown">
-								<a href="<?php echo base_url('takaloAdmin/allObj');?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Shop</a>
-							</li>
+							<li class="nav-item active"><a class="nav-link" href="<?php echo base_url('takaloAdmin/homeAdmin');?>">Home</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="<?php echo base_url('takaloAdmin/deconn');?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Log out</a>

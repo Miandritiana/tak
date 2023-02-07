@@ -43,22 +43,24 @@
 				</div>
 				<div class="row">
 					<!-- single product -->
-					<div class="col-lg-3 col-md-6">
-						<div class="single-product">
-							<img class="img-fluid" src="assets/img/product/p1.jpg" alt="">
-							<div class="product-details">
-								<h6>addidas New Hammer sole
-									for Sports person</h6>
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
+					<?php for ($i=0; $i < count($data); $i++) { ?>
+						<div class="col-lg-3 col-md-6">
+							<div class="single-product">
+								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
+								<div class="product-details">
+									<h6><?php echo $data[$i]['nom']; ?></h6>
+									<div class="price">
+                                        <h6><?php echo $data[$i]['description']; ?></h6>
+                                        <h6><?php echo $data[$i]['prixEstimatif']; ?> $</h6>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					<?php } ?>
 					<!-- single product -->
 				</div>
 			</div>
+		<button type="button" class="btn btn-secondary btn-lg btn-block btn-outline-success">Add</button>
 		</div>
 		<!-- single product slide -->
 </section>

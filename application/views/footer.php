@@ -50,8 +50,7 @@
 						<p>Stay update with our latest</p>
 						<div class="" id="mc_embed_signup">
 
-							<form target="_blank" novalidate="true" action=""
-							 method="get" class="form-inline">
+							<form action="" method="get" class="form-inline">
 
 								<div class="d-flex flex-row">
 

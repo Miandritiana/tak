@@ -24,7 +24,7 @@
                 <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
                     <form action="<?php echo base_url('TakaloAdmin/login');?>" method="post">
-                            <h3 class="mb-5 text-center heading">We are TakaloMimilo</h3>
+                            <h3 class="mb-5 text-center heading">We are Takalo Mimilo</h3>
                             <h6 class="msg-info">Please login to your account</h6>
                             <div class="form-group"> <label class="form-control-label text-muted">Email</label> <input type="email" id="email" name="mail" placeholder="admin@gmail.com" class="form-control"> </div>
                             <div class="form-group"> <label class="form-control-label text-muted">Password</label> <input type="password" id="psw" name="pass" placeholder="admin" class="form-control"> </div>

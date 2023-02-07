@@ -27,14 +27,14 @@
 </head>
 
 <body>
-<section class="owl-carousel active-product-area section_gap">
+<section class="owl-carousel active-product-area section_gap" style="margin-top:150px;">
 		<!-- single product slide -->
 		<div class="single-product-slider">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-lg-6 text-center">
 						<div class="section-title">
-							<h1>Latest Products</h1>
+							<h1>Tous les objets</h1>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
 								dolore
 								magna aliqua.</p>
@@ -43,70 +43,31 @@
 				</div>
 				<div class="row">
 					<!-- single product -->
-					<div class="col-lg-3 col-md-6">
-						<div class="single-product">
-							<img class="img-fluid" src="assets/img/product/p1.jpg" alt="">
-							<div class="product-details">
-								<h6>addidas New Hammer sole
-									for Sports person</h6>
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<div class="prd-bottom">
-									<a href="" class="social-info">
-										<span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-heart"></span>
-										<p class="hover-text">Wishlist</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-sync"></span>
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-move"></span>
-										<p class="hover-text">view more</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
+                    <?php for ($i=0; $i < count($data); $i++) { ?>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-product">
+                                <img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
+                                <div class="product-details">
+                                    <h6><?php echo $data[$i]['nom']; ?></h6>
+                                    <div class="price">
+                                        <h6><?php echo $data[$i]['description']; ?></h6>
+                                        <h6><?php echo $data[$i]['prixEstimatif']; ?> $</h6>
+                                    </div>
+                                    <div class="prd-bottom">
+                                        <a href="<?php echo base_url('backOffice/change');?>?idObj=<?php echo $data[$i]['id'];?>" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">modify</p>
+                                        </a>
+										<a href="<?php echo base_url('backOffice/delete');?>?idObj=<?php echo $data[$i]['id'];?>" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">delete</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
 					<!-- single product -->
-					<div class="col-lg-3 col-md-6">
-						<div class="single-product">
-							<img class="img-fluid" src="assets/img/product/p2.jpg" alt="">
-							<div class="product-details">
-								<h6>addidas New Hammer sole
-									for Sports person</h6>
-								<div class="price">
-									<h6>$150.00</h6>
-									<h6 class="l-through">$210.00</h6>
-								</div>
-								<div class="prd-bottom">
-
-									<a href="" class="social-info">
-										<span class="ti-bag"></span>
-										<p class="hover-text">add to bag</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-heart"></span>
-										<p class="hover-text">Wishlist</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-sync"></span>
-										<p class="hover-text">compare</p>
-									</a>
-									<a href="" class="social-info">
-										<span class="lnr lnr-move"></span>
-										<p class="hover-text">view more</p>
-									</a>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

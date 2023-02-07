@@ -41,6 +41,35 @@ create table objetAko(
     foreign key (idObj) references objet (id)
 );
 
+insert into objetAko values (1, 1);
+insert into objetAko values (1, 7);
+insert into objetAko values (1, 6);
+insert into objetAko values (1, 3);
+insert into objetAko values (2, 8);
+insert into objetAko values (2, 9);
+insert into objetAko values (2, 10);
+insert into objetAko values (2, 11);
+insert into objetAko values (2, 4);
+insert into objetAko values (3, 2);
+insert into objetAko values (3, 5);
+insert into objetAko values (3, 12);
+
+alter table objetako add column fotoana datetime;
+update objetako set fotoana = '2023-02-07 12:51:00' where idU = 1 and idObj = 1;
+update objetako set fotoana = '2023-02-07 12:51:35' where idU = 1 and idObj = 7;
+update objetako set fotoana = '2023-02-07 12:52:00' where idU = 1 and idObj = 6;
+update objetako set fotoana = '2023-02-07 12:53:00' where idU = 1 and idObj = 3;
+
+update objetako set fotoana = '2023-02-07 13:01:00' where idU = 2 and idObj = 8;
+update objetako set fotoana = '2023-02-07 13:02:00' where idU = 2 and idObj = 9;
+update objetako set fotoana = '2023-02-07 13:04:00' where idU = 2 and idObj = 10;
+update objetako set fotoana = '2023-02-07 13:05:00' where idU = 2 and idObj = 11;
+update objetako set fotoana = '2023-02-07 13:07:00' where idU = 2 and idObj = 4;
+
+update objetako set fotoana = '2023-02-07 15:07:00' where idU = 3 and idObj = 2;
+update objetako set fotoana = '2023-02-07 15:10:00' where idU = 3 and idObj = 5;
+update objetako set fotoana = '2023-02-07 15:12:00' where idU = 3 and idObj = 12;
+
 create table echange(
     id int primary key not null auto_increment,
     idUM int,
@@ -53,3 +82,13 @@ create table echange(
     foreign key (idObjGet) references objet(id),
     foreign key (idObjSet) references objet(id)
 );
+
+insert into echange values (null, 1, 7, 10, 2, 'en attente');
+insert into echange values (null, 2, 10, 5, 3, 'en attente');
+insert into echange values (null, 3, 12, 3, 1, 'en attente');
+
+create or replace view ObjetParUser as
+select oMe.idU, o.*, oMe.fotoana from objetAko oMe
+    join objet o on o.id = oMe.idObj
+    order by oMe.fotoana desc;
+
