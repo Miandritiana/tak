@@ -20,7 +20,6 @@
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/themify-icons.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap.css">
-<link rel="stylesheet" href="<?php echo base_url();?>assets/css/owl.carousel.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/nice-select.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/nouislider.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/css/ion.rangeSlider.css" />
@@ -51,8 +50,7 @@
 						<p>Stay update with our latest</p>
 						<div class="" id="mc_embed_signup">
 
-							<form target="_blank" novalidate="true" action=""
-							 method="get" class="form-inline">
+							<form action="" method="get" class="form-inline">
 
 								<div class="d-flex flex-row">
 

@@ -4,7 +4,7 @@
 class Model extends CI_Model 
 {
     public function utilisateur()
-    {   
+    {
         $sql = "select * from utilisateur";
         $query = $this->db->query($sql);
         $valiny = array();
@@ -41,6 +41,18 @@ class Model extends CI_Model
         return $valiny;
     }
 
+    public function checkIdUser($mail)
+    {
+        $sql = "select id from utilisateur where mail = '$mail'";
+        $query = $this->db->query($sql);
+
+        foreach($query->result_array() as $row)
+        {
+            $valiny = $row;
+        }
+        return $valiny;
+    }
+
     public function insertObjet($nom, $sary, $description, $prixEstimatif)
     {
         $this->load->database();
@@ -49,25 +61,30 @@ class Model extends CI_Model
         return $query->result_array;
     }
 
-    public function inscription($nom,$mail,$passWord)
-    {   
-        $valiny = true;
-        $this->load->database();
-        $listeUtil = $this->Model->utilisateur();
-        $sql="insert into utilisateur values(null,'".$nom."',".$mail.",'".$passWord.")";
-        $query= $this->db->query($sql);
-        for($i=0; $i <count($listeUtil); $i++){
-            if($listeUtil[$i]['mail'] == $mail)
-            {
-                $error = urlencode("Votre adresse email existe deja!!");
-            }
-            else if($listeUtil[$i]['mail'] != $mail)
-            {
-                return valiny;
-            }
+    public function allObj()
+    {
+        $sql = "select * from objet";
+        $query = $this->db->query($sql);
+        $valiny = array();
 
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
         }
-       
+        return $valiny;
+    }
+
+    public function allObjParUser($idU)
+    {
+        $sql = "select * from ObjetParUser where idU = $idU";
+        $query = $this->db->query($sql);
+        $valiny = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
+        }
+        return $valiny;
     }
 
 }
