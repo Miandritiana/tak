@@ -49,6 +49,27 @@ class Model extends CI_Model
         return $query->result_array;
     }
 
+    public function inscription($nom,$mail,$passWord)
+    {   
+        $valiny = true;
+        $this->load->database();
+        $listeUtil = $this->Model->utilisateur();
+        $sql="insert into utilisateur values(null,'".$nom."',".$mail.",'".$passWord.")";
+        $query= $this->db->query($sql);
+        for($i=0; $i <count($listeUtil); $i++){
+            if($listeUtil[$i]['mail'] == $mail)
+            {
+                $error = urlencode("Votre adresse email existe deja!!");
+            }
+            else if($listeUtil[$i]['mail'] != $mail)
+            {
+                return valiny;
+            }
+
+        }
+       
+    }
+
 }
 
 ?>
