@@ -105,7 +105,19 @@ class Model extends CI_Model
             }
 
         }
-       
+    }
+
+        public function oneObjet($idObG)
+    {
+        $sql = "select * from objet where id = $idObG";
+        $query = $this->db->query($sql);
+	    $valiny = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
+        }
+        return $valiny;
     }
 
 }
