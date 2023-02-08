@@ -132,7 +132,16 @@ class Model extends CI_Model
         return $valiny;
     }
 
-
+    public function checkUserDobjet($idObj)
+    {
+        $sql = "select idU from objetako where idObj = $idObj";
+        $query = $this->db->query($sql);
+        foreach($query->result_array() as $row)
+        {
+            $valiny = $row;
+        }
+        return $valiny;
+    }
 
 }
 
