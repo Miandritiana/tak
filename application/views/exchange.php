@@ -43,18 +43,20 @@
 				</div>
 				<div class="row">
 					<!-- single product -->
-					<?php for ($i=0; $i < count($data); $i++) { ?>
+					<?php for ($i=0; $i < count($dataObjGet); $i++) { ?>
 						<div class="col-lg-3 col-md-6">
                             <div class="single-product">
-								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
+								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $dataObjGet[$i]['sary']; ?>" alt="">
 								<div class="product-details">
-									<h6><?php echo $data[$i]['nom']; ?></h6>
+									<h6><?php echo $dataObjGet[$i]['nom']; ?></h6>
 									<div class="price">
-                                        <h6><?php echo $data[$i]['description']; ?></h6>
-                                        <h6><?php echo $data[$i]['prixEstimatif']; ?> $</h6>
+                                        <h6><?php echo $dataObjGet[$i]['description']; ?></h6>
+                                        <h6><?php echo $dataObjGet[$i]['prixEstimatif']; ?> $</h6>
 									</div>
 								</div>
 							</div>
+							<?php } ?>
+							<?php for ($i=0; $i < count($data); $i++) { ?>
 							<div class="single-product">
 								<img class="img-fluid" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" alt="">
 								<div class="product-details">

@@ -89,6 +89,7 @@ class Model extends CI_Model
 
     public function inscription($nom,$mail,$passWord)
     {   
+        $valiny = true;
         $this->load->database();
         $listeUtil = $this->Model->utilisateur();
         $sql="insert into utilisateur values(null,'".$nom."',".$mail.",'".$passWord.")";
@@ -100,11 +101,10 @@ class Model extends CI_Model
             }
             else if($listeUtil[$i]['mail'] != $mail)
             {
-                redirect('takaloadmin/index');
+                return valiny;
             }
 
-        }
-       
+        }   
     }
 
         public function oneObjet($idObG)
@@ -119,8 +119,6 @@ class Model extends CI_Model
         }
         return $valiny;
     }
-
-
 
 }
 
