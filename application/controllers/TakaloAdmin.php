@@ -88,7 +88,7 @@ class TakaloAdmin extends CI_Controller
 		}
 
 	}
-
+	
 	public function insertObjet()
 	{
 		$nom = $this->input->post("nom");
