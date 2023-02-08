@@ -14,12 +14,12 @@ class TakaloAdmin extends CI_Controller
 
 		$nom = $this->input->post("nom");
 		$mail = $this->input->post("mail");
-		$pass = $this->input->post("pass");
+		$passWord = $this->input->post("passWord");
 
 		$this->load->model('Model');
-		if($this->Model->inscription($nom, $mail, $pass))
+		if($this->Model->inscription($nom, $mail, $passWord))
 		{
-			redirect('takaloAdmin/index');
+			redirect('takaloAdmin/inscri/index');
 		}
 	}
 
@@ -76,6 +76,18 @@ class TakaloAdmin extends CI_Controller
 			redirect('takaloAdmin/index');
 		}
 
+	}
+
+	public function Objet()
+	{
+		$data = array();
+		$data['insertObject']= $this->Model->insertObject();
+		$data['nom'] = $this->post->('nom');
+		$data['sary'] = $this->post->('sary');
+		$data['description'] = $this->post->('description');
+		$data['prixEstimatif'] = $this->post->('prixEstimatif');
+		$data['content'] = 'home';
+		$this->load->view('home';$data);
 	}
 
 	public function change()
