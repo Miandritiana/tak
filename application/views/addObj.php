@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Takalomimilo Sign up</title>
+  <title>Takalomimilo Add</title>
 
   <link href="<?php echo base_url();?>assets/css/login.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

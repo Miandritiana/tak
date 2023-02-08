@@ -60,7 +60,9 @@
 					<!-- single product -->
 				</div>
 			</div>
-		<button type="button" class="btn btn-secondary btn-lg btn-block btn-outline-success">Add</button>
+		<form action="<?php echo base_url('TakaloAdmin/addObjetAko');?>" method="post">
+			<button type="submit" class="btn btn-secondary btn-lg btn-block btn-outline-success">Add</button>
+		</form>
 		</div>
 		<!-- single product slide -->
 </section>
