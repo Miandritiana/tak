@@ -11,15 +11,18 @@ class TakaloAdmin extends CI_Controller
 	public function inscri()
 	{
 		$this->load->view('inscription');
+	}
 
+	public function inscrive()
+	{
 		$nom = $this->input->post("nom");
 		$mail = $this->input->post("mail");
-		$passWord = $this->input->post("passWord");
+		$pass = $this->input->post("pass");
 
 		$this->load->model('Model');
-		if($this->Model->inscription($nom, $mail, $passWord))
+		if($this->Model->inscription($nom, $mail, $pass))
 		{
-			redirect('takaloAdmin/inscri/index');
+			redirect('takaloAdmin/index');
 		}
 	}
 
