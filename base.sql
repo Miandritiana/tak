@@ -90,8 +90,8 @@ insert into echange values (null, 3, 12, 3, 1, 'en attente');
 alter table echange add column datedemande datetime;
 alter table echange add column dateaccept datetime;
 
-update objetako set datedemande = '2023-02-07 15:07:00' set dateaccept = 'null'  where idUM = 1 and idObjGet = 7 and idObjetSet = 10 and idUA = 2 ;
-update objetako set datedemande = '2023-02-07 15:10:00' se dateaccept = '2023-02-07 15:12:00' where idUM = 2 and idObjGet = 10 and idObjetSet = 5 and idUA = 3;
+update echange set datedemande = '2023-02-07 15:07:00', dateaccept = 'null'  where idUM = 1 and idObjGet = 7 and idObjSet = 10 and idUA = 2 ;
+update echange set datedemande = '2023-02-07 15:10:00', dateaccept = '2023-02-07 15:12:00' where idUM = 2 and idObjGet = 10 and idObjSet = 5 and idUA = 3;
 
 create or replace view ObjetParUser as
 select oMe.idU, o.*, oMe.fotoana from objetAko oMe
