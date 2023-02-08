@@ -143,6 +143,15 @@ class Model extends CI_Model
         return $valiny;
     }
 
+    public function insertobjattente($idUM ,$idObjGet,$idObjSet,$idUA,$statut,$datedemande,$dateaccept)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,%s,%s,%s,%s,'En attente',%s,%s)";
+        $sprintf=sprintf($sql);
+        $query= $this->db->query($sprintf);
+        return $query->result_array();
+    }
+
 }
 
 ?>
