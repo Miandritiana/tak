@@ -146,8 +146,23 @@ class Model extends CI_Model
     public function insertobjattente($idUM ,$idObjGet,$idObjSet,$idUA,$statut,$datedemande,$dateaccept)
     {
         $this->load->database();
-        $sql="insert into echange values(null,%s,%s,%s,%s,'En attente',%s,%s)";
-        $sprintf=sprintf($sql);
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
+        $query= $this->db->query($sprintf);
+        return $query->result_array();
+    }
+
+    public function insertobjetaccepte($idUM ,$idObjGet,$idObjSet,$idUA,$datedemande,$dateaccept)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
+        $query= $this->db->query($sprintf);
+        return $query->result_array();
+    }
+
+    public function insertobjetrefus($idUM ,$idObjGet,$idObjSet,$idUA,$statut,$datedemande,$dateaccept)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
         $query= $this->db->query($sprintf);
         return $query->result_array();
     }
