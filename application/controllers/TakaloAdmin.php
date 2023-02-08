@@ -53,9 +53,9 @@ class TakaloAdmin extends CI_Controller
 		$this->load->view('header');
 
 		$this->load->model('Model');
-		$data['data'] = $this->Model->objNotUser();
+		$data['data'] = $this->Model->objNotUser($_SESSION['idUser']['id']);
 		
-		$this->load->view('home', $data);
+		$this->load->view('shop', $data);
 		$this->load->view('footer');
 	}
 
@@ -105,10 +105,8 @@ class TakaloAdmin extends CI_Controller
 		$prixEstimatif = $this->input->post("prixEstimatif");
 
 		$this->load->model('Model');
-		if($this->load->Model->insertObjet($nom,$sary,$description,$prixEstimatif))
-		{
-			redirect('takaloAdmin/home');
-		}
+		$this->load->Model->insertObjet($nom,$sary,$description,$prixEstimatif);
+			// redirect('takaloAdmin/home');
 		
 	}
 
@@ -127,16 +125,46 @@ class TakaloAdmin extends CI_Controller
 
 	public function traitChange()
 	{
+		$this->load->model('Model');
 		$ObjSet = $this->input->get("idObj");
 		$idUA = $this->Model->checkUserDobjet($ObjSet);
 		$idObjGet = $this->input->get("idObjGet");
-		$this->load->model('Model');
-		$idUM = $this->Model->allObjParUser($_SESSION['idUser']['id']);
-
-		if($this->Model->insertobjattente($idUM, $idObjGet, $ObjSet, $idUA))
-		{
+		// $idUM = $this->Model->allObjParUser($_SESSION['idUser']['id']);
+		$this->Model->insertobjattente($_SESSION['idUser']['id'], $idObjGet, $ObjSet, $idUA);
 			redirect('takaloAdmin/home');
-		}
+	}
+
+	public function echange()
+	{		
+		$this->load->view('header');
+		$this->load->model('Model');
+		$data['echange'] = $this->Model->demandeOneUser($_SESSION['idUser']['id']);
+		$this->load->view('echange', $data);
+		$this->load->view('footer');
+	}
+
+	public function accepte()
+	{
+		$idUM = $this->input->get("idUM");
+		$ObjGet = $this->input->get("objGet");
+		$objSet = $this->input->get("objSet");
+		$this->load->model('Model');
+		$this->Model->insertobjetaccepte($idUM,$ObjGet,$objSet,$_SESSION['idUser']['id']);
+		$this->Model->insertObjetAko($idUM,$objSet);
+		$this->Model->insertObjetAko($_SESSION['idUser']['id'],$objSet);
+		redirect('takaloAdmin/home');
+	}
+
+	public function refuse()
+	{
+		$idUM = $this->input->get("idUM");
+		$ObjGet = $this->input->get("objGet");
+		$objSet = $this->input->get("objSet");
+		$this->load->model('Model');
+		$this->Model->insertobjetrefus($idUM,$ObjGet,$objSet,$_SESSION['idUser']['id']);
+		$this->Model->insertObjetAko($idUM,$objSet);
+		$this->Model->insertObjetAko($_SESSION['idUser']['id'],$objSet);
+		redirect('takaloAdmin/home');
 	}
 
 	public function deconn()

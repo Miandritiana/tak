@@ -56,9 +56,9 @@ class Model extends CI_Model
     public function insertObjet($nom, $sary, $description, $prixEstimatif)
     {
         $this->load->database();
-        $sql="insert into objet values(null,'".$nom."',".$sary.",'".$description."',".$prixEstimatif.")";
+        $sql="insert into objet values (null,'".$nom."','img/".$sary."','".$description."',".$prixEstimatif.")";
+        var_dump($sql);
         $query= $this->db->query($sql);
-        return $query->result_array;
     }
 
     public function allObj()
@@ -138,33 +138,64 @@ class Model extends CI_Model
         $query = $this->db->query($sql);
         foreach($query->result_array() as $row)
         {
+            $valiny = $row['idU'];
+        }
+        return $valiny;
+    }
+
+    public function insertobjattente($idUM ,$idObjGet,$idObjSet,$idUA)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'en atente',now(),null)";
+        $query= $this->db->query($sql);
+        // return $query->result_array();
+    }
+
+    public function insertobjetaccepte($idUM ,$idObjGet,$idObjSet,$idUA)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'accepte',null,now())";
+        $query= $this->db->query($sql);
+        // return $query->result_array();
+    }
+
+    public function insertobjetrefus($idUM ,$idObjGet,$idObjSet,$idUA)
+    {
+        $this->load->database();
+        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'refuse',null,now())";
+        $query= $this->db->query($sql);
+        // return $query->result_array();
+    }
+
+    public function objDemande($idUser)
+    {
+        $sql = "select idObjSet from echange where idUA = $idUser and dateaccept = 0";
+        $query = $this->db->query($sql);
+        foreach($query->result_array() as $row)
+        {
             $valiny = $row;
         }
         return $valiny;
     }
 
-    public function insertobjattente($idUM ,$idObjGet,$idObjSet,$idUA,$statut,$datedemande,$dateaccept)
+    public function demandeOneUser($idUser)
     {
-        $this->load->database();
-        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
-        $query= $this->db->query($sprintf);
-        return $query->result_array();
+        $sql = "select * from echangePreci where idUA = $idUser and dateaccept = 0";
+        $query = $this->db->query($sql);
+        $valiny = array();
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
+        }
+        return $valiny;
     }
 
-    public function insertobjetaccepte($idUM ,$idObjGet,$idObjSet,$idUA,$datedemande,$dateaccept)
+    public function insertObjetAko($idU ,$idObj)
     {
         $this->load->database();
-        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
-        $query= $this->db->query($sprintf);
-        return $query->result_array();
-    }
-
-    public function insertobjetrefus($idUM ,$idObjGet,$idObjSet,$idUA,$statut,$datedemande,$dateaccept)
-    {
-        $this->load->database();
-        $sql="insert into echange values(null,".$idUM." ,".$idObjGet.",".$idObjSet.",".$idUA.",'".$statut."',".$datedemande.",".$dateaccept.")";
-        $query= $this->db->query($sprintf);
-        return $query->result_array();
+        $sql="insert into objetAko values($idU,$idObj,now())";
+        $query= $this->db->query($sql);
+        // return $query->result_array();
     }
 
 }

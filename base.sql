@@ -106,4 +106,3 @@ select e.id, e.idUM, UM.nom nomUM, oG.id idObGet, oG.nom nomObjGet, oG.sary sary
     join utilisateur UM on UM.id = e.idUM
     join utilisateur UA on UA.id = e.idUA;
 
-select * from echangePreci where idUA = 2 and dateaccept = 0;
