@@ -23,7 +23,7 @@
             <div class="card card1">
                 <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
-                    <form action="<?php echo base_url('TakaloAdmin/inscri');?>" method="post">
+                    <form action="<?php echo base_url('TakaloAdmin/inscrive');?>" method="post">
                             <h3 class="mb-5 text-center heading">We are TakaloMimilo</h3>
                             <h6 class="msg-info">Please Sign Up</h6>
                             <div class="form-group"> <label class="form-control-label text-muted">Username</label> <input type="text" id="email" name="nom" class="form-control"> </div>
