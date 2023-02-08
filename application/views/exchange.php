@@ -38,7 +38,7 @@
 								<div class="single-deal">
 									<div class="overlay"></div>
 									<img class="img-fluid w-100" src="<?php echo base_url();?>assets/<?php echo $data[$i]['sary']; ?>" width="500px">
-									<a href="<?php echo base_url('TakaloAdmin/change');?>?idObjGet=<?php echo $data[$i]['id']; ?>" class="img-pop-up" target="_blank">
+									<a href="<?php echo base_url('TakaloAdmin/traitChange');?>?idObjGet=<?php echo $data[$i]['id']; ?>&idObj=<?php echo $ObjSet; ?>" class="img-pop-up" target="_blank">
 										<div class="deal-details">
 											<h6 class="deal-title">Anah ho atakalo</h6>
 										</div>

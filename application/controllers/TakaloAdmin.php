@@ -96,7 +96,7 @@ class TakaloAdmin extends CI_Controller
 	{
 		$this->load->view('addObj');
 	}
-	
+
 	public function insertObjet()
 	{
 		$nom = $this->input->post("nom");
@@ -114,16 +114,29 @@ class TakaloAdmin extends CI_Controller
 
 	public function change()
 	{
-		$this->load->view('header');
-		
 		$ObjSet = $this->input->get("idObj");
 
 		$this->load->model('Model');
 		$data['data'] = $this->Model->allObjParUser($_SESSION['idUser']['id']);
-		$data['dataObjGet'] = $this->Model->oneObjet($ObjSet);
+		$data['dataObjSet'] = $this->Model->oneObjet($ObjSet);
+		$data['ObjSet'] = $ObjSet;
+		$data['header'] = 'header';
+		$data['footer'] = 'footer';
 		$this->load->view('exchange', $data);
+	}
 
-		$this->load->view('footer');
+	public function traitChange()
+	{
+		$ObjSet = $this->input->get("idObj");
+		$idUA = $this->Model->checkUserDobjet($ObjSet);
+		$idObjGet = $this->input->get("idObjGet");
+		$this->load->model('Model');
+		$idUM = $this->Model->allObjParUser($_SESSION['idUser']['id']);
+
+		if($this->Model->insertobjattente($idUM, $idObjGet, $ObjSet, $idUA))
+		{
+			redirect('takaloAdmin/home');
+		}
 	}
 
 	public function deconn()
