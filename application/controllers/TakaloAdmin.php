@@ -45,6 +45,17 @@ class TakaloAdmin extends CI_Controller
 		$this->load->view('footer');
 	}
 
+	public function shop()
+	{		
+		$this->load->view('header');
+
+		$this->load->model('Model');
+		$data['data'] = $this->Model->objNotUser();
+		
+		$this->load->view('home', $data);
+		$this->load->view('footer');
+	}
+
 	public function allObj()
 	{		
 		$this->load->view('header');
@@ -78,17 +89,17 @@ class TakaloAdmin extends CI_Controller
 
 	}
 
-	public function Objet()
-	{
-		$data = array();
-		$data['insertObject']= $this->Model->insertObject();
-		$data['nom'] = $this->post->('nom');
-		$data['sary'] = $this->post->('sary');
-		$data['description'] = $this->post->('description');
-		$data['prixEstimatif'] = $this->post->('prixEstimatif');
-		$data['content'] = 'home';
-		$this->load->view('home';$data);
-	}
+	// public function Objet()
+	// {
+	// 	$data = array();
+	// 	$data['insertObject']= $this->Model->insertObject();
+	// 	$data['nom'] = $this->post->('nom');
+	// 	$data['sary'] = $this->post->('sary');
+	// 	$data['description'] = $this->post->('description');
+	// 	$data['prixEstimatif'] = $this->post->('prixEstimatif');
+	// 	$data['content'] = 'home';
+	// 	$this->load->view('home';$data);
+	// }
 
 	public function change()
 	{

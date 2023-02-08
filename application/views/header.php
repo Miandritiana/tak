@@ -45,7 +45,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto" style="margin-right:80px;">
 							<li class="nav-item submenu dropdown"><a class="nav-link" href="<?php echo base_url('takaloAdmin/home');?>">Home</a></li>
 							<li class="nav-item submenu dropdown">
-								<a href="<?php echo base_url('takaloAdmin/allObj');?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								<a href="<?php echo base_url('takaloAdmin/shop');?>" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Shop</a>
 							</li>
 							<li class="nav-item submenu dropdown">
