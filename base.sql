@@ -90,11 +90,20 @@ insert into echange values (null, 3, 12, 3, 1, 'en attente');
 alter table echange add column datedemande datetime;
 alter table echange add column dateaccept datetime;
 
-update echange set datedemande = '2023-02-07 15:07:00', dateaccept = 'null'  where idUM = 1 and idObjGet = 7 and idObjSet = 10 and idUA = 2 ;
-update echange set datedemande = '2023-02-07 15:10:00', dateaccept = '2023-02-07 15:12:00' where idUM = 2 and idObjGet = 10 and idObjSet = 5 and idUA = 3;
+update echange set datedemande = '2023-02-07 15:07:00' set dateaccept = 'null'  where idUM = 1 and idObjGet = 7 and idObjSet = 10 and idUA = 2 ;
+update echange set datedemande = '2023-02-07 15:10:00' set dateaccept = '2023-02-07 15:12:00' where idUM = 2 and idObjGet = 10 and idObjSet = 5 and idUA = 3;
 
 create or replace view ObjetParUser as
 select oMe.idU, o.*, oMe.fotoana from objetAko oMe
     join objet o on o.id = oMe.idObj
     order by oMe.fotoana desc;
 
+create or replace view echangePreci as
+select e.id, e.idUM, UM.nom nomUM, oG.id idObGet, oG.nom nomObjGet, oG.sary saryObjGet, oG.prixEstimatif volaObjGet, 
+    oS.id idObSet, oS.nom nomObjSet, oS.sary saryObjSet, oS.prixEstimatif volaObjSet, UA.nom nomUA, e.idUA, e.datedemande, e.dateaccept from echange e
+    join objet oG on oG.id = e.idObjGet
+    join objet oS on oS.id = e.idObjSet
+    join utilisateur UM on UM.id = e.idUM
+    join utilisateur UA on UA.id = e.idUA;
+
+select * from echangePreci where idUA = 2 and dateaccept = 0;
