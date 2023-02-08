@@ -104,7 +104,7 @@ class Model extends CI_Model
                 return valiny;
             }
 
-        }
+        }   
     }
 
         public function oneObjet($idObG)

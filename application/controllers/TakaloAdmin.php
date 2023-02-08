@@ -80,13 +80,16 @@ class TakaloAdmin extends CI_Controller
 
 	public function change()
 	{
+		$this->load->view('header');
+		
 		$ObjSet = $this->input->get("idObj");
-		$data['objSet'] = $ObjSet;
 
 		$this->load->model('Model');
 		$data['data'] = $this->Model->allObjParUser($_SESSION['idUser']['id']);
+		$data['dataObjGet'] = $this->Model->oneObjet($ObjSet);
 		$this->load->view('exchange', $data);
 
+		$this->load->view('footer');
 	}
 
 	public function deconn()
