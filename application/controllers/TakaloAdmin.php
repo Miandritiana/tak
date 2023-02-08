@@ -78,16 +78,19 @@ class TakaloAdmin extends CI_Controller
 
 	}
 
-	public function Objet()
+	public function insertObjet()
 	{
-		$data = array();
-		$data['insertObject']= $this->Model->insertObject();
-		$data['nom'] = $this->post->('nom');
-		$data['sary'] = $this->post->('sary');
-		$data['description'] = $this->post->('description');
-		$data['prixEstimatif'] = $this->post->('prixEstimatif');
-		$data['content'] = 'home';
-		$this->load->view('home';$data);
+		$nom = $this->input->post("nom");
+		$sary = $this->input->post("sary");
+		$description = $this->input->post("description");
+		$prixEstimatif = $this->input->post("prixEstimatif");
+
+		$this->load->model('Model');
+		if($this->load->Model->insertObjet($nom,$sary,$description,$prixEstimatif))
+		{
+			redirect('takaloAdmin/home');
+		}
+		
 	}
 
 	public function change()
