@@ -87,9 +87,21 @@ class Model extends CI_Model
         return $valiny;
     }
 
+    public function objNotUser($idU)
+    {
+        $sql = "select * from ObjetParUser where idU != $idU";
+        $query = $this->db->query($sql);
+        $valiny = array();
+
+        foreach($query->result_array() as $row)
+        {
+            $valiny[] = $row;
+        }
+        return $valiny;
+    }
+
     public function inscription($nom,$mail,$passWord)
     {   
-        $valiny = true;
         $this->load->database();
         $listeUtil = $this->Model->utilisateur();
         $sql="insert into utilisateur values(null,'".$nom."',".$mail.",'".$passWord.")";
@@ -101,7 +113,7 @@ class Model extends CI_Model
             }
             else if($listeUtil[$i]['mail'] != $mail)
             {
-                return valiny;
+                redirect('takaloadmin/index');
             }
 
         }   
@@ -119,6 +131,8 @@ class Model extends CI_Model
         }
         return $valiny;
     }
+
+
 
 }
 
